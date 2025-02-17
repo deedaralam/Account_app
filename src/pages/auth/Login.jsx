@@ -69,33 +69,61 @@ const Login = () => {
                         <span className="flex justify-center items-center text-5xl p-4 bg-amber-500 w-20 h-20 rounded-lg ">
                             <IoPlaySkipForwardSharp />
                         </span>
-                        <span className="text-lg mt-2.5">Watch this video to learn<br />
-                            how to use it effectively</span>
+                        <span className="text-lg mt-2.5">
+                            Watch this video to learn
+                            <br />
+                            how to use it effectively
+                        </span>
                     </Link>
                 </li>
             </ul>
             {/* SignIn and SignUp Form Section  */}
             <div className="bg-gradient-to-l from-transparent via-lightDark to-transparent border border-white/10 w-[calc(100%-20px)] mx-10 p-10 rounded-xl">
                 <div className="flex flex-row justify-center gap-4">
-                    <div className="w-80 h-12 border border-white/10 rounded-lg">
-                        <input
-                            type="text"
-                            placeholder="Username"
-                            className="outline-none border-none p-4 h-12 w-full text-sm text-white/50 placeholder-white/70 placeholder-opacity-75 focus:shadow-inner transition-all"
-                        />
-                    </div>
-                    <div className="w-80 h-12 border border-white/10 rounded-lg">
-                        <input
-                            type="text"
-                            placeholder="Password"
-                            className="outline-none border-none p-4 h-12 w-full text-sm text-white/50 placeholder-white/70 placeholder-opacity-75 focus:shadow-inner transition-all"
-                        />
+
+                    {/* Username + Remind Me */}
+                    <div className="w-80">
+                        <div className="h-12 border border-white/10 rounded-lg">
+                            <input
+                                type="text"
+                                placeholder="Username"
+                                className="outline-none border-none p-4 h-12 w-full text-sm text-white/50 placeholder-white/70 placeholder-opacity-75 focus:shadow-inner transition-all"
+                            />
+                        </div>
+                        {/* Remind Me Checkbox */}
+                        <div className="flex items-center mt-2 space-x-2">
+                            <input
+                                type="checkbox"
+                                id="remindMe"
+                                className="w-6 h-6 text-blue-600 bg-secondary border border-white/10 rounded-lg focus:ring-orange focus:ring-2 appearance-none checked:bg-orange checked:border-orange"
+                            />
+                            <label htmlFor="remindMe" className="text-white text-sm cursor-pointer">
+                                Remind Me
+                            </label>
+                        </div>
                     </div>
 
+                    {/* Password + Forgot Password Link */}
+                    <div className="w-80">
+                        <div className="h-12 border border-white/10 rounded-lg">
+                            <input
+                                type="password"
+                                placeholder="Password"
+                                className="outline-none border-none p-4 h-12 w-full text-sm text-white/50 placeholder-white/70 placeholder-opacity-75 focus:shadow-inner transition-all"
+                            />
+                        </div>
+                        {/* Forgot Password Link */}
+                        <div className="mt-2">
+                            <a href="#" className="text-orange text-sm hover:none">
+                                Forgot Password or Username?
+                            </a>
+                        </div>
+                    </div>
                 </div>
+                <div className="flex justify-center mt-10"> <Link className="w-lg p-4 bg-orange rounded-xl text-white text-lg border-none text-center">Sign In</Link></div>
+
+
             </div>
-
-
         </>
     );
 };
