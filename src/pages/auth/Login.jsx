@@ -7,6 +7,7 @@ import { TiUserAdd } from "react-icons/ti";
 import { IoPlaySkipForwardSharp } from "react-icons/io5";
 
 const Login = () => {
+
     return (
         <>
             {/* Logo here */}
@@ -80,7 +81,6 @@ const Login = () => {
             {/* SignIn and SignUp Form Section  */}
             <div className="bg-gradient-to-l from-transparent via-lightDark to-transparent border border-white/10 w-[calc(100%-20px)] mx-10 p-10 rounded-xl">
                 <div className="flex flex-row justify-center gap-4">
-
                     {/* Username + Remind Me */}
                     <div className="w-80">
                         <div className="h-12 border border-white/10 rounded-lg">
@@ -97,7 +97,10 @@ const Login = () => {
                                 id="remindMe"
                                 className="w-6 h-6 text-blue-600 bg-secondary border border-white/10 rounded-lg focus:ring-orange focus:ring-2 appearance-none checked:bg-orange checked:border-orange"
                             />
-                            <label htmlFor="remindMe" className="text-white text-sm cursor-pointer">
+                            <label
+                                htmlFor="remindMe"
+                                className="text-white text-sm cursor-pointer"
+                            >
                                 Remind Me
                             </label>
                         </div>
@@ -120,8 +123,16 @@ const Login = () => {
                         </div>
                     </div>
                 </div>
-                <div className="flex justify-center mt-10"> <Link className="w-lg p-4 bg-orange rounded-xl text-white text-lg border-none text-center">Sign In</Link></div>
-
+                <div className="flex justify-center mt-10">
+                    <Link
+                        className="w-lg p-2 rounded-xl text-white text-lg border-none text-center 
+              bg-orange  relative overflow-hidden
+              "
+                    >
+                        <div className="absolute inset-0 bg-[url('./assets/grain_bg.png')] bg-cover bg-center opacity-20 pointer-events-none"></div>
+                        Sign In
+                    </Link>
+                </div>
 
             </div>
         </>
