@@ -14,3 +14,16 @@
     --color-secondary: #353330;
     /* Other design tokens */
 }
+
+@layer utilities {
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 2px; /* Slim scrollbar */
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background-color: #888; /* Scrollbar color */
+      border-radius: 10px; /* Rounded corners */
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background-color: transparent; /* Track color */
+    }
+  }
