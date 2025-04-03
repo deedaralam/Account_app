@@ -4,24 +4,48 @@ import AuthLayout from "../layouts/AuthLayout";
 import Login from "../pages/auth/Login";
 import Register from "../pages/auth/Register";
 import ClientLayout from "../layouts/ClientLayout";
-import ClientLists from "../pages/Client/ClientLists";
-import ClientForm from "../pages/Client/ClientForm";
+import Applicants from "../pages/Client/Applicants";
+import NotFound from "../pages/NotFound/NotFound";
+import ProtectedRoute from "./ProtectedRoute";
+import PublicRoute from "./PublicRoute";
+import useProgressBar from "../hooks/useProgressBar";
+import ApplicantDetails from "../pages/Client/ApplicantDetails";
+
 const AppRoutes = () => {
+  const loading = useProgressBar();
+
   return (
     <Router>
-      <Routes>
-        {/* Authentication Routes */}
-        <Route path="/" element={<AuthLayout />}>
-          <Route index element={<Login />} />
-          <Route path="register" element={<Register />} />
-        </Route>
+      {/* Spinner during Loading */}
+      {loading && (
+        <div className="loading-overlay">
+          <div className="spinner"></div>
+        </div>
+      )}
 
-        {/* Clients Routes */}
-        <Route path="/clients" element={<ClientLayout />}>
-          <Route path="lists" element={<ClientLists />} />
-          <Route path="form" element={<ClientForm />} />
-        </Route>
-      </Routes>
+      {/* Main Content - Hidden until loading is complete */}
+      <div className={`app-container ${loading ? "hidden" : "fade-in"}`}>
+        <Routes>
+          {/* Public Routes */}
+          <Route path="/" element={<AuthLayout />}>
+            <Route element={<PublicRoute />}>
+              <Route index element={<Login />} />
+              <Route path="register" element={<Register />} />
+            </Route>
+          </Route>
+
+          {/* Protected Routes */}
+          <Route path="/applicants" element={<ClientLayout />}>
+            <Route element={<ProtectedRoute />}>
+              <Route path="" element={<Applicants />} />
+              <Route path=":id" element={<ApplicantDetails />} />
+            </Route>
+          </Route>
+
+          {/* 404 Page */}
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </div>
     </Router>
   );
 };

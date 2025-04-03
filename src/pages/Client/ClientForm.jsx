@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useEffect, useState, useRef } from "react";
+import Tabs from "../../components/Tabs/Tabs";
 
 const ClientForm = () => {
   return (
     <div>
-      ClientForm
+      {/* Tabs Header */}
+      <Tabs />
     </div>
-  )
-}
+  );
+};
 
-export default ClientForm
+export default ClientForm;
